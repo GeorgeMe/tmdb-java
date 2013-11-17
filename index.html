@@ -30,31 +30,25 @@
         <section id="main-content">
           <h1>Dependencies</h1>
           <p>Releases are packaged without dependencies. Please add them as you see fit, e.g. for Maven:</p>
-          <pre>
-          &lt;dependency>
-            &lt;groupId>com.squareup.retrofit&lt;/groupId>
-            &lt;artifactId>retrofit&lt;/artifactId>
-            &lt;version>(insert latest version)&lt;/version>
-          &lt;/dependency>
-          </pre>
+          <pre>&lt;dependency>
+  &lt;groupId>com.squareup.retrofit&lt;/groupId>
+  &lt;artifactId>retrofit&lt;/artifactId>
+  &lt;version>(insert latest version)&lt;/version>
+&lt;/dependency></pre>
           <p>or for Gradle:</p>
-          <pre>
-          compile 'com.squareup.retrofit:retrofit:1.2.2'
-          </pre>
+          <pre>compile 'com.squareup.retrofit:retrofit:1.2.2'</pre>
 
           <h1>Usage</h1>
 
-          <pre><code>
-          // Create an instance of the service you wish to use
-          // you can keep this around
-          Tmdb tmdb = new Tmdb();
-          tmdb.setApiKey("yourapikey");
-          MovieService movieService = tmdb.movieService();
+          <pre><code>// Create an instance of the service you wish to use
+// you can keep this around
+Tmdb tmdb = new Tmdb();
+tmdb.setApiKey("yourapikey");
+MovieService movieService = tmdb.movieService();
 
-          // Call any of the available endpoints
-          Movie movie = movieService.summary(550);
-          Trailers trailers = movieService.trailers(550);
-          </code></pre>
+// Call any of the available endpoints
+Movie movie = movieService.summary(550);
+Trailers trailers = movieService.trailers(550);</code></pre>
         </section>
 
         <aside id="sidebar">
