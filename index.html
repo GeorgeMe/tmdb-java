@@ -30,22 +30,23 @@
         <section id="main-content">
           <h1>Dependencies</h1>
           <p>Releases are packaged without dependencies. Please add them as you see fit, e.g. for Maven:</p>
-          <pre><code>
-          <dependency>
-            <groupId>com.squareup.retrofit</groupId>
-            <artifactId>retrofit</artifactId>
-            <version>(insert latest version)</version>
-          </dependency>
-          </code></pre>
+          <pre>
+          &lt;dependency>
+            &lt;groupId>com.squareup.retrofit&lt;/groupId>
+            &lt;artifactId>retrofit&lt;/artifactId>
+            &lt;version>(insert latest version)&lt;/version>
+          &lt;/dependency>
+          </pre>
           <p>or for Gradle:</p>
-          <pre><code>
+          <pre>
           compile 'com.squareup.retrofit:retrofit:1.2.2'
-          </code></pre>
+          </pre>
 
           <h1>Usage</h1>
 
           <pre><code>
-          // Create an instance of the service you wish to use, you can keep this around
+          // Create an instance of the service you wish to use
+          // you can keep this around
           Tmdb tmdb = new Tmdb();
           tmdb.setApiKey("yourapikey");
           MovieService movieService = tmdb.movieService();
@@ -58,7 +59,7 @@
 
         <aside id="sidebar">
 
-	      <a href="downloads/tmdb-java-0.1.jar" class="button">
+	      <a href="https://github.com/UweTrottmann/tmdb-java/releases" class="button">
 				  <small>Download latest</small>
 	   			.jar file
         </a>
