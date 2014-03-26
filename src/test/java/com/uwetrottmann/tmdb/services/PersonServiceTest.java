@@ -2,8 +2,10 @@
 package com.uwetrottmann.tmdb.services;
 
 import com.uwetrottmann.tmdb.BaseTestCase;
+import com.uwetrottmann.tmdb.entities.AppendToResponse;
 import com.uwetrottmann.tmdb.entities.Person;
 import com.uwetrottmann.tmdb.entities.PersonCredits;
+import com.uwetrottmann.tmdb.enumerations.AppendToResponseItem;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,6 +28,21 @@ public class PersonServiceTest extends BaseTestCase {
         assertNull("Person deathday does not match", person.deathday);
         assertNotNull("Person place of birth does not match", person.place_of_birth);
         assertNotNull("Movie profile path was null.", person.profile_path);
+    }
+
+    public void test_summary_append_response() throws ParseException {
+        Person person = getManager().personService().summary(287,
+                new AppendToResponse(
+                        AppendToResponseItem.TV_CREDITS,
+                        AppendToResponseItem.MOVIE_CREDITS,
+                        AppendToResponseItem.COMBINED_CREDITS
+                )
+        );
+
+        assertThat(person).isNotNull();
+        assertThat(person.tv_credits).isNotNull();
+        assertThat(person.movie_credits).isNotNull();
+        assertThat(person.combined_credits).isNotNull();
     }
 
     public void test_movie_credits() {

@@ -23,7 +23,10 @@ public enum AppendToResponseItem {
     TRAILERS("trailers"),
     RELEASES("releases"),
     CREDITS("credits"),
-    SIMILAR("similar_movies");
+    SIMILAR("similar_movies"),
+    COMBINED_CREDITS("combined_credits"),
+    TV_CREDITS("tv_credits"),
+    MOVIE_CREDITS("movie_credits");
 
     private final String value;
 

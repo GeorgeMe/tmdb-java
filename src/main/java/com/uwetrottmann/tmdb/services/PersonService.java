@@ -17,12 +17,14 @@
 
 package com.uwetrottmann.tmdb.services;
 
+import com.uwetrottmann.tmdb.entities.AppendToResponse;
 import com.uwetrottmann.tmdb.entities.Credits;
 import com.uwetrottmann.tmdb.entities.Person;
 import com.uwetrottmann.tmdb.entities.PersonCredits;
 
 import retrofit.http.GET;
 import retrofit.http.Path;
+import retrofit.http.Query;
 
 public interface PersonService {
 
@@ -34,6 +36,18 @@ public interface PersonService {
     @GET("/person/{id}")
     Person summary(
             @Path("id") int tmdbId
+    );
+
+    /**
+     * Get the general person information for a specific id.
+     *
+     * @param tmdbId TMDb id.
+     * @param appendToResponse extra requests to append to the result.
+     */
+    @GET("/person/{id}")
+    Person summary(
+            @Path("id") int tmdbId,
+            @Query("append_to_response") AppendToResponse appendToResponse
     );
 
     /**

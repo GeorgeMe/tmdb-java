@@ -39,4 +39,9 @@ public class Person implements TmdbEntity {
 
     public Date deathday;
 
+    // Following are used with append_to_response
+    public PersonCredits tv_credits;
+    public PersonCredits movie_credits;
+    public PersonCredits combined_credits;
+
 }
