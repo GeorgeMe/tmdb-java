@@ -17,8 +17,7 @@
 
 package com.uwetrottmann.tmdb.services;
 
-import com.uwetrottmann.tmdb.entities.Movie;
-import com.uwetrottmann.tmdb.entities.Person;
+import com.uwetrottmann.tmdb.entities.PersonResultsPage;
 import com.uwetrottmann.tmdb.entities.ResultsPage;
 
 import retrofit.http.GET;
@@ -32,7 +31,7 @@ public interface SearchService {
      * @param query CGI escaped string
      */
     @GET("/search/movie")
-    ResultsPage<Movie> movie(
+    ResultsPage movie(
             @Query("query") String query
     );
 
@@ -56,7 +55,7 @@ public interface SearchService {
      *                           set this option to 'ngram'.
      */
     @GET("/search/movie")
-    ResultsPage<Movie> movie(
+    ResultsPage movie(
             @Query("query") String query,
             @Query("page") Integer page,
             @Query("language") String language,
@@ -72,7 +71,7 @@ public interface SearchService {
      * @param query              CGI escaped string
      */
     @GET("/search/person")
-    ResultsPage<Person> person(
+    PersonResultsPage person(
             @Query("query") String query
     );
 
@@ -91,7 +90,7 @@ public interface SearchService {
      *                           set this option to 'ngram'.
      */
     @GET("/search/person")
-    ResultsPage<Person> person(
+    PersonResultsPage person(
             @Query("query") String query,
             @Query("page") Integer page,
             @Query("include_adult") Boolean includeAdult,

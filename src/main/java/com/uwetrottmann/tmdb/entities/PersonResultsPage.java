@@ -21,11 +21,11 @@ import com.uwetrottmann.tmdb.TmdbEntity;
 
 import java.util.List;
 
-public class ResultsPage implements TmdbEntity {
+public class PersonResultsPage implements TmdbEntity {
     private static final long serialVersionUID = -5167211774471598391L;
 
     public Integer page;
-    public List<Movie> results;
+    public List<Person> results;
     public Integer total_pages;
     public Integer total_results;
 }
