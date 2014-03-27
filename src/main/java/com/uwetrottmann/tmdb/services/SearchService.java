@@ -17,6 +17,8 @@
 
 package com.uwetrottmann.tmdb.services;
 
+import com.uwetrottmann.tmdb.entities.Movie;
+import com.uwetrottmann.tmdb.entities.Person;
 import com.uwetrottmann.tmdb.entities.ResultsPage;
 
 import retrofit.http.GET;
@@ -30,7 +32,7 @@ public interface SearchService {
      * @param query CGI escaped string
      */
     @GET("/search/movie")
-    ResultsPage movie(
+    ResultsPage<Movie> movie(
             @Query("query") String query
     );
 
@@ -54,13 +56,45 @@ public interface SearchService {
      *                           set this option to 'ngram'.
      */
     @GET("/search/movie")
-    ResultsPage movie(
+    ResultsPage<Movie> movie(
             @Query("query") String query,
             @Query("page") Integer page,
             @Query("language") String language,
             @Query("include_adult") Boolean includeAdult,
             @Query("year") Integer year,
             @Query("primary_release_year") Integer primaryReleaseYear,
+            @Query("search_type") String searchType
+    );
+
+    /**
+     * Search for person by name.
+     *
+     * @param query              CGI escaped string
+     */
+    @GET("/search/person")
+    ResultsPage<Person> person(
+            @Query("query") String query
+    );
+
+    /**
+     * Search for movies by name.
+     *
+     * @param query              CGI escaped string
+     * @param page               <em>Optional.</em> Minimum value is 1, expected value is an
+     *                           integer.
+     * @param includeAdult       <em>Optional.</em> Toggle the inclusion of adult titles. Expected
+     *                           value is: true or false
+     * @param searchType         <em>Optional.</em> By default, the search type is 'phrase'. This is
+     *                           almost guaranteed the option you will want. It's a great all
+     *                           purpose search type and by far the most tuned for every day
+     *                           querying. For those wanting more of an "autocomplete" type search,
+     *                           set this option to 'ngram'.
+     */
+    @GET("/search/person")
+    ResultsPage<Person> person(
+            @Query("query") String query,
+            @Query("page") Integer page,
+            @Query("include_adult") Boolean includeAdult,
             @Query("search_type") String searchType
     );
 
