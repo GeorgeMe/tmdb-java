@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Chris Banes
+ * Copyright 2013 Uwe Trottmann
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,31 +12,20 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
+ * 
  */
 
-package com.uwetrottmann.tmdb.enumerations;
+package com.uwetrottmann.tmdb.entities;
 
+import com.uwetrottmann.tmdb.TmdbEntity;
 
-public enum AppendToResponseItem {
+import java.util.List;
 
-    TRAILERS("trailers"),
-    RELEASES("releases"),
-    CREDITS("credits"),
-    SIMILAR("similar_movies"),
-    COMBINED_CREDITS("combined_credits"),
-    TV_CREDITS("tv_credits"),
-    MOVIE_CREDITS("movie_credits"),
-    IMAGES("images");
+public class Images implements TmdbEntity {
 
-    private final String value;
+    public Integer id;
 
-    private AppendToResponseItem(String value) {
-        this.value = value;
-    }
+    public List<Image> backdrops;
 
-    @Override
-    public String toString() {
-        return value;
-    }
+    public List<Image> posters;
 }

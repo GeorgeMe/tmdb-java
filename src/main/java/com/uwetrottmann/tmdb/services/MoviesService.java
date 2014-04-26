@@ -19,6 +19,7 @@ package com.uwetrottmann.tmdb.services;
 
 import com.uwetrottmann.tmdb.entities.AppendToResponse;
 import com.uwetrottmann.tmdb.entities.Credits;
+import com.uwetrottmann.tmdb.entities.Images;
 import com.uwetrottmann.tmdb.entities.Movie;
 import com.uwetrottmann.tmdb.entities.Releases;
 import com.uwetrottmann.tmdb.entities.ResultsPage;
@@ -188,6 +189,28 @@ public interface MoviesService {
     @GET("/movie/{id}/releases")
     Releases releases(
             @Path("id") int tmdbId
+    );
+
+    /**
+     * Get the images (posters and backdrops) for a specific movie id.
+     *
+     * @param tmdbId   TMDb id.
+     */
+    @GET("/movie/{id}/images")
+    Images images(
+            @Path("id") int tmdbId
+    );
+
+    /**
+     * Get the images (posters and backdrops) for a specific movie id.
+     *
+     * @param tmdbId   TMDb id.
+     * @param language <em>Optional.</em> ISO 639-1 code.
+     */
+    @GET("/movie/{id}/images")
+    Images images(
+            @Path("id") int tmdbId,
+            @Query("language") String language
     );
 
 }

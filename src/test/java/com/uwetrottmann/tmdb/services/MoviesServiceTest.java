@@ -4,6 +4,7 @@ package com.uwetrottmann.tmdb.services;
 import com.uwetrottmann.tmdb.BaseTestCase;
 import com.uwetrottmann.tmdb.entities.AppendToResponse;
 import com.uwetrottmann.tmdb.entities.Credits;
+import com.uwetrottmann.tmdb.entities.Images;
 import com.uwetrottmann.tmdb.entities.Movie;
 import com.uwetrottmann.tmdb.entities.ResultsPage;
 import com.uwetrottmann.tmdb.entities.Trailers;
@@ -79,11 +80,22 @@ public class MoviesServiceTest extends BaseTestCase {
                 new AppendToResponse(
                         AppendToResponseItem.RELEASES,
                         AppendToResponseItem.CREDITS,
-                        AppendToResponseItem.TRAILERS));
+                        AppendToResponseItem.TRAILERS,
+                        AppendToResponseItem.IMAGES));
 
         assertNotNull(movie.releases);
         assertNotNull(movie.credits);
         assertNotNull(movie.trailers);
+        assertNotNull(movie.images);
+    }
+
+    public void test_summary_append_images() {
+        Movie movie = getManager().moviesService().summary(550,
+                null,
+                new AppendToResponse(
+                        AppendToResponseItem.IMAGES));
+
+        assertNotNull(movie.images);
     }
 
     public void test_trailers() {
@@ -102,6 +114,16 @@ public class MoviesServiceTest extends BaseTestCase {
         assertThat(credits.cast.get(0)).isNotNull();
         assertThat(credits.cast.get(0).name).isEqualTo("Edward Norton");
         assertThat(credits.crew).isNotEmpty();
+    }
+
+    public void test_images() {
+        Images images = getManager().moviesService().images(550);
+        assertThat(images).isNotNull();
+        assertThat(images.id).isEqualTo(550);
+        assertThat(images.backdrops).isNotEmpty();
+        assertThat(images.backdrops.get(0)).isNotNull();
+        assertThat(images.posters).isNotEmpty();
+        assertThat(images.posters.get(0)).isNotNull();
     }
 
     public void test_nowPlaying() {
