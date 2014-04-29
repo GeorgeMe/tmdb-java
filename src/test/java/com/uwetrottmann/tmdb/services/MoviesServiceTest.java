@@ -57,6 +57,15 @@ public class MoviesServiceTest extends BaseTestCase {
         assertNotNull(movie.trailers);
     }
 
+    public void test_summary_append_videos() {
+        Movie movie = getManager().moviesService().summary(550,
+                null,
+                new AppendToResponse(
+                        AppendToResponseItem.VIDEOS));
+
+        assertNotNull(movie.videos);
+    }
+
     public void test_summary_append_credits() {
         Movie movie = getManager().moviesService().summary(550,
                 null,
@@ -81,12 +90,12 @@ public class MoviesServiceTest extends BaseTestCase {
                 new AppendToResponse(
                         AppendToResponseItem.RELEASES,
                         AppendToResponseItem.CREDITS,
-                        AppendToResponseItem.TRAILERS,
+                        AppendToResponseItem.VIDEOS,
                         AppendToResponseItem.IMAGES));
 
         assertNotNull(movie.releases);
         assertNotNull(movie.credits);
-        assertNotNull(movie.trailers);
+        assertNotNull(movie.videos);
         assertNotNull(movie.images);
     }
 
