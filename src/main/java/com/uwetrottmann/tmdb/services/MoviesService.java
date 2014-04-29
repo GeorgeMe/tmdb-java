@@ -24,6 +24,7 @@ import com.uwetrottmann.tmdb.entities.Movie;
 import com.uwetrottmann.tmdb.entities.Releases;
 import com.uwetrottmann.tmdb.entities.ResultsPage;
 import com.uwetrottmann.tmdb.entities.Trailers;
+import com.uwetrottmann.tmdb.entities.Videos;
 
 import retrofit.http.GET;
 import retrofit.http.Path;
@@ -77,14 +78,32 @@ public interface MoviesService {
             @Query("append_to_response") AppendToResponse appendToResponse
     );
 
+    @GET("/movie/{id}/trailers")
+    @Deprecated
+    Trailers trailers(
+            @Path("id") int tmdbId
+    );
+
     /**
-     * Get the trailers for a specific movie id.
+     * Get the videos (trailers, teasers, clips, etc...) for a specific movie id.
      *
      * @param tmdbId TMDb id.
      */
-    @GET("/movie/{id}/trailers")
-    Trailers trailers(
+    @GET("/movie/{id}/videos")
+    Videos videos(
             @Path("id") int tmdbId
+    );
+
+    /**
+     * Get the videos (trailers, teasers, clips, etc...) for a specific movie id.
+     *
+     * @param tmdbId TMDb id.
+     * @param language <em>Optional.</em> ISO 639-1 code.
+     */
+    @GET("/movie/{id}/videos")
+    Videos videos(
+            @Path("id") int tmdbId,
+            @Query("language") String language
     );
 
     /**

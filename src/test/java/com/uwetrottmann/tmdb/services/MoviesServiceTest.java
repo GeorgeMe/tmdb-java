@@ -8,6 +8,7 @@ import com.uwetrottmann.tmdb.entities.Images;
 import com.uwetrottmann.tmdb.entities.Movie;
 import com.uwetrottmann.tmdb.entities.ResultsPage;
 import com.uwetrottmann.tmdb.entities.Trailers;
+import com.uwetrottmann.tmdb.entities.Videos;
 import com.uwetrottmann.tmdb.enumerations.AppendToResponseItem;
 
 import java.text.ParseException;
@@ -104,6 +105,13 @@ public class MoviesServiceTest extends BaseTestCase {
         assertThat(trailers.id).isEqualTo(550);
         assertThat(trailers.quicktime).isNotNull();
         assertThat(trailers.youtube).isNotNull();
+    }
+
+    public void test_videos() {
+        Videos videos = getManager().moviesService().videos(550);
+        assertThat(videos).isNotNull();
+        assertThat(videos.id).isEqualTo(550);
+        assertThat(videos.results).isNotEmpty();
     }
 
     public void test_credits() {
