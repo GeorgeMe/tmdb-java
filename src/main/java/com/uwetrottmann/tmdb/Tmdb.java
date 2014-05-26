@@ -18,6 +18,7 @@
 package com.uwetrottmann.tmdb;
 
 import com.uwetrottmann.tmdb.services.ConfigurationService;
+import com.uwetrottmann.tmdb.services.GenreService;
 import com.uwetrottmann.tmdb.services.MoviesService;
 import com.uwetrottmann.tmdb.services.PersonService;
 import com.uwetrottmann.tmdb.services.SearchService;
@@ -122,6 +123,10 @@ public class Tmdb {
 
     public PersonService personService() {
         return buildRestAdapter().create(PersonService.class);
+    }
+
+    public GenreService genreService() {
+        return buildRestAdapter().create(GenreService.class);
     }
 
 }
