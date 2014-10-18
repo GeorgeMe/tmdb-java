@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Uwe Trottmann
+ * Copyright 2014 Uwe Trottmann
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,23 +12,22 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
  */
 
 package com.uwetrottmann.tmdb.entities;
 
-import com.uwetrottmann.tmdb.TmdbEntity;
-
+import java.util.Date;
 import java.util.List;
 
-public class Credits implements TmdbEntity {
-
-    private static final long serialVersionUID = -7947291466017850804L;
+public class TvSeason {
 
     public Integer id;
 
-    public List<CastMember> cast;
-
-    public List<CrewMember> crew;
+    public Date air_date;
+    public List<TvEpisode> episodes;
+    public String name;
+    public String overview;
+    public String poster_path;
+    public Integer season_number;
 
 }

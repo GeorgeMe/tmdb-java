@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 Uwe Trottmann
+ * Copyright 2014 Uwe Trottmann
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,23 +12,15 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
  */
 
-package com.uwetrottmann.tmdb.entities;
+package com.uwetrottmann.tmdb;
 
-import com.uwetrottmann.tmdb.TmdbEntity;
+public interface TestData {
 
-import java.util.List;
+    String MOVIE_TITLE = "Fight Club";
 
-public class Credits implements TmdbEntity {
-
-    private static final long serialVersionUID = -7947291466017850804L;
-
-    public Integer id;
-
-    public List<CastMember> cast;
-
-    public List<CrewMember> crew;
-
+    String TVSHOW_TITLE = "Breaking Bad";
+    int TVSHOW_ID = 1396;
+    int TVSHOW_TVDB_ID = 81189;
 }

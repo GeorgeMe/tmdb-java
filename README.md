@@ -8,16 +8,18 @@ A Java wrapper around the [TMDb v3 API][1] using [retrofit][2].
 Usage
 -----
 Add the following dependency to your Gradle project:
+
 ```
-compile 'com.uwetrottmann:tmdb-java:0.5.0'
+compile 'com.uwetrottmann:tmdb-java:0.7.0'
 ```
 
 or your Maven project:
+
 ```
 <dependency>
     <groupId>com.uwetrottmann</groupId>
     <artifactId>tmdb-java</artifactId>
-    <version>0.5.0</version>
+    <version>0.7.0</version>
 </dependency>
 ```
 
@@ -25,35 +27,45 @@ Dependencies
 ------------
 If you rather use the [released jar][3], add dependencies yourself as you see fit.
 For example for Gradle:
+
 ```
-compile 'com.squareup.retrofit:retrofit:1.4.1'
-compile 'com.squareup.okhttp:okhttp:1.5.0' // not mandatory, but greatly recommended
+compile 'com.squareup.retrofit:retrofit:1.6.1'
+compile 'com.squareup.okhttp:okhttp:2.0.0' // not mandatory, but greatly recommended
+compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0' // not mandatory, but greatly recommended
 ```
 
 Or for Maven:
+
 ```
 <dependency>
     <groupId>com.squareup.retrofit</groupId>
     <artifactId>retrofit</artifactId>
-    <version>1.4.1</version>
+    <version>1.6.1</version>
 </dependency>
 <!-- not mandatory, but greatly recommended: -->
 <dependency>
   <groupId>com.squareup.okhttp</groupId>
   <artifactId>okhttp</artifactId>
-  <version>1.5.0</version>
+  <version>2.0.0</version>
+</dependency>
+<!-- not mandatory, but greatly recommended: -->
+<dependency>
+  <groupId>com.squareup.okhttp</groupId>
+  <artifactId>okhttp-urlconnection</artifactId>
+  <version>2.0.0</version>
 </dependency>
 ```
 
 Example
 -------
+
 ```
 // Create an instance of the service you wish to use
 // you can keep this around
 Tmdb tmdb = new Tmdb();
 tmdb.setApiKey("yourapikey");
 MovieService movieService = tmdb.movieService();
-
+//
 // Call any of the available endpoints
 Movie movie = movieService.summary(550);
 Trailers trailers = movieService.trailers(550);

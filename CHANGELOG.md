@@ -4,9 +4,28 @@ Supported API calls
 -------------------
 
  * Configuration service
+ * Find service
  * Movie service (incomplete)
  * Person service (incomplete)
  * Search service (incomplete)
+ * Tv service (incomplete)
+
+0.7.0 *(2014-08-12)*
+--------------------
+ * Easier customization of `RestAdapter`: set your own HTTP client or executor by overriding `newRestAdapterBuilder()`.
+ * Add `okhttp` and `okhttp-urlconnection` 2.0.0 as optional dependencies.
+
+0.6.0 *(2014-06-30)*
+--------------------
+ * Support `/find/{id}`.
+ * Support `/tv/{id}/credits`.
+ * Add language support to Person service credit endpoints.
+ * Add special API key for testing, no need to fill in your own any longer. Just run the tests.
+ * Update to [retrofit][3] 1.6.0.
+
+0.5.0 *(2014-03-17)*
+--------------------
+ * Support `/person/{id}`, `/person/{id}/movie_credits`, `/person/{id}/tv_credits` and `/person/{id}/combined_credits`. Thanks @chrisbanes!
 
 0.5.0 *(2014-03-17)*
 --------------------
